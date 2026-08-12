@@ -25,27 +25,215 @@
 </style></head><body><div class="app">
 <section class="hero"><div class="sub">RUTINA AVANZADA · CASA · BARRA + PARALELAS</div><h1>💪 Calistenia 6D</h1>
 <div class="heroStats"><div class="chip"><small>Fuerza</small><b>45 min</b></div><div class="chip"><small>Cardio</small><b id="cardioHero">15 min</b></div></div></section>
-<div class="days" id="days"></div>
-<section class="card"><h2 id="title"></h2><div class="hint">Trabaja con técnica limpia y termina las series cerca del fallo técnico. Si la forma se rompe, detén la serie.</div><div id="list"></div><div id="rope"></div></section>
-<section class="timer"><small id="timerLabel">CRONÓMETRO</small><div class="clock" id="clock">00:00</div><div class="timerBtns"><button id="start">▶ Iniciar</button><button id="pause">⏸ Pausa</button><button id="reset">↻ Reiniciar</button></div></section>
+
+<div class="days" id="days">
+  <button class="day active">Lun</button>
+  <button class="day">Mar</button>
+  <button class="day">Mié</button>
+  <button class="day">Jue</button>
+  <button class="day">Vie</button>
+  <button class="day">Sáb</button>
+</div>
+
+<section class="card"><h2 id="title">Lunes · Pecho · Hombros · Bíceps</h2><div class="hint">Trabaja con técnica limpia y termina las series cerca del fallo técnico. Si la forma se rompe, detén la serie.</div><div id="list">
+<div class="ex">
+  <div class="exTop"><div class="name">Fondos en paralelas inclinados al pecho</div><div class="num">1</div></div>
+  <div class="meta">4 tandas · 45 s trabajo · 45 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Flexiones pseudo-planche</div><div class="num">2</div></div>
+  <div class="meta">4 tandas · 40 s trabajo · 50 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Pike push-ups profundas</div><div class="num">3</div></div>
+  <div class="meta">4 tandas · 45 s trabajo · 45 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Flexiones arqueras</div><div class="num">4</div></div>
+  <div class="meta">4 tandas · 40 s trabajo · 50 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Dominadas supinas cerradas</div><div class="num">5</div></div>
+  <div class="meta">4 tandas · 45 s trabajo · 45 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Aguante isométrico supino a 90°</div><div class="num">6</div></div>
+  <div class="meta">3 tandas · 35 s trabajo · 45 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Flexiones declinadas lentas</div><div class="num">7</div></div>
+  <div class="meta">3 tandas · 45 s trabajo · 45 s descanso</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div>
+
+<div class="ex">
+  <div class="exTop"><div class="name">Finisher del día · máxima calidad</div><div class="num">8</div></div>
+  <div class="meta">1 tanda · 7 min 25 s</div>
+  <div class="bar"><button>✅ Hecho</button><button>❌ No hecho</button></div>
+</div></div>
+<div id="rope">
+  <div class="rope">
+    <h3>🪢 Cuerda · 15 min</h3>
+    <div class="ropeStats">
+      <div class="rstat"><b>15</b><small>tandas</small></div>
+      <div class="rstat"><b>45 s</b><small>salto</small></div>
+      <div class="rstat"><b>15 s</b><small>descanso</small></div>
+    </div>
+    <div class="hint" style="margin-top:8px">
+      Al terminar los 45 min de fuerza, la sesión pasa automáticamente a la cuerda.
+      El teléfono pita en cada cambio de salto ↔ descanso.
+    </div>
+  </div>
+</div>
+</section>
+<section class="timer">
+<small>SESIÓN AUTOMÁTICA</small>
+<div id="sessionPhase" style="font-size:18px;font-weight:800;margin-top:7px">Listo para comenzar</div>
+<div id="sessionExercise" style="opacity:.78;margin-top:4px">Pulsa INICIAR RUTINA</div>
+<div class="clock" id="clock">00:00</div>
+<div id="sessionSet" style="opacity:.78;margin-bottom:10px">—</div>
+<button id="startRoutine" style="width:100%;border:0;border-radius:13px;padding:14px;font-weight:900;background:#fff;color:#111827">▶ INICIAR RUTINA</button>
+<div class="timerBtns" style="margin-top:9px">
+<button id="pauseRoutine">⏸ Pausa</button><button id="resumeRoutine">▶ Continuar</button><button id="stopRoutine">↻ Reiniciar</button>
+</div>
+<div style="font-size:12px;opacity:.7;margin-top:10px">El teléfono emitirá un pitido en cada cambio de trabajo, descanso, ejercicio y cardio.</div>
+</section>
 <section class="card"><h2>📊 Cumplimiento</h2><div class="summary"><div class="metric"><b id="yes">0</b><small>Hechos</small></div><div class="metric"><b id="no">0</b><small>No hechos</small></div><div class="metric"><b id="pct">0%</b><small>Cumplimiento</small></div></div></section>
+
+<section class="card">
+  <h2>📅 Plan semanal</h2>
+  <div class="hint">
+    <b>Lunes:</b> Pecho · Hombros · Bíceps + cuerda<br><br>
+    <b>Martes:</b> Espalda · Trapecio · Tríceps + cuerda<br><br>
+    <b>Miércoles:</b> Piernas · Abdomen · sin cuerda<br><br>
+    <b>Jueves:</b> Pecho · Hombros · Bíceps + cuerda<br><br>
+    <b>Viernes:</b> Espalda · Trapecio · Tríceps + cuerda<br><br>
+    <b>Sábado:</b> Piernas · Abdomen · sin cuerda<br><br>
+    <b>Domingo:</b> Descanso y recuperación
+  </div>
+</section>
 </div><div class="footer">Domingo: descanso y recuperación.</div>
-<script>
-const PLANS={"Lunes": {"title": "Pecho · Hombros · Bíceps", "cardio": true, "exercises": [["Fondos en paralelas inclinados al pecho", 4, 45, 45, 45], ["Flexiones pseudo-planche", 4, 40, 50, 45], ["Pike push-ups profundas", 4, 45, 45, 45], ["Flexiones arqueras", 4, 40, 50, 45], ["Dominadas supinas cerradas", 4, 45, 45, 45], ["Aguante isométrico supino a 90°", 3, 35, 45, 45], ["Flexiones declinadas lentas", 3, 45, 45, 0], ["Finisher del día · máxima calidad", 1, 445, 0, 0]], "strength_total": 2700}, "Martes": {"title": "Espalda · Trapecio · Tríceps", "cardio": true, "exercises": [["Dominadas pronas estrictas", 4, 45, 50, 45], ["Dominadas amplias", 4, 40, 50, 45], ["Dominadas escapulares", 4, 40, 45, 45], ["Aguante arriba en dominada", 3, 35, 45, 45], ["Fondos en paralelas verticales", 4, 45, 45, 45], ["Flexiones diamante", 4, 40, 45, 45], ["Extensión de tríceps en paralelas", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 480, 0, 0]], "strength_total": 2700}, "Miércoles": {"title": "Piernas · Abdomen", "cardio": false, "exercises": [["Sentadilla búlgara alternada", 4, 50, 40, 45], ["Sentadilla con salto", 4, 40, 45, 45], ["Zancadas alternas profundas", 4, 50, 40, 45], ["Sentadilla a una pierna asistida", 4, 40, 45, 45], ["Elevación de gemelos unilateral", 4, 45, 35, 45], ["Elevaciones de piernas colgado", 4, 40, 40, 45], ["Hollow hold", 3, 40, 40, 0], ["Finisher del día · máxima calidad", 1, 435, 0, 0]], "strength_total": 2700}, "Jueves": {"title": "Pecho · Hombros · Bíceps", "cardio": true, "exercises": [["Fondos en paralelas con pausa abajo", 4, 45, 50, 45], ["Flexiones declinadas", 4, 45, 45, 45], ["Pike push-ups con pausa", 4, 40, 50, 45], ["Flexiones explosivas", 4, 35, 50, 45], ["Dominadas supinas tempo lento", 4, 45, 50, 45], ["Negativas de dominada supina", 3, 40, 50, 45], ["Flexiones pseudo-planche", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 425, 0, 0]], "strength_total": 2700}, "Viernes": {"title": "Espalda · Trapecio · Tríceps", "cardio": true, "exercises": [["Dominadas pronas con pausa arriba", 4, 45, 50, 45], ["Dominadas neutras / agarre disponible", 4, 45, 50, 45], ["Dominadas escapulares lentas", 4, 40, 45, 45], ["Negativas de dominada prona", 3, 40, 50, 45], ["Fondos en paralelas cerrados", 4, 45, 45, 45], ["Flexiones diamante lentas", 4, 40, 45, 45], ["Extensión de tríceps en paralelas", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 435, 0, 0]], "strength_total": 2700}, "Sábado": {"title": "Piernas · Abdomen", "cardio": false, "exercises": [["Sentadilla búlgara con pausa", 4, 50, 40, 45], ["Zancada atrás + rodilla arriba", 4, 45, 40, 45], ["Sentadilla con salto explosiva", 4, 35, 45, 45], ["Pistol squat asistida", 4, 40, 45, 45], ["Elevación de gemelos con pausa", 4, 45, 35, 45], ["Elevaciones de rodillas colgado", 4, 45, 40, 45], ["Plancha RKC", 3, 40, 40, 0], ["Finisher del día · máxima calidad", 1, 455, 0, 0]], "strength_total": 2700}}, CARDIO={"rounds": 15, "work": 45, "rest": 15}, DAYS=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-let idx=Math.min(((new Date().getDay()+6)%7),5), sec=0, tid=null, running=false;
+<script>const PLANS={"Lunes": {"title": "Pecho · Hombros · Bíceps", "cardio": true, "exercises": [["Fondos en paralelas inclinados al pecho", 4, 45, 45, 45], ["Flexiones pseudo-planche", 4, 40, 50, 45], ["Pike push-ups profundas", 4, 45, 45, 45], ["Flexiones arqueras", 4, 40, 50, 45], ["Dominadas supinas cerradas", 4, 45, 45, 45], ["Aguante isométrico supino a 90°", 3, 35, 45, 45], ["Flexiones declinadas lentas", 3, 45, 45, 0], ["Finisher del día · máxima calidad", 1, 445, 0, 0]], "strength_total": 2700}, "Martes": {"title": "Espalda · Trapecio · Tríceps", "cardio": true, "exercises": [["Dominadas pronas estrictas", 4, 45, 50, 45], ["Dominadas amplias", 4, 40, 50, 45], ["Dominadas escapulares", 4, 40, 45, 45], ["Aguante arriba en dominada", 3, 35, 45, 45], ["Fondos en paralelas verticales", 4, 45, 45, 45], ["Flexiones diamante", 4, 40, 45, 45], ["Extensión de tríceps en paralelas", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 480, 0, 0]], "strength_total": 2700}, "Miércoles": {"title": "Piernas · Abdomen", "cardio": false, "exercises": [["Sentadilla búlgara alternada", 4, 50, 40, 45], ["Sentadilla con salto", 4, 40, 45, 45], ["Zancadas alternas profundas", 4, 50, 40, 45], ["Sentadilla a una pierna asistida", 4, 40, 45, 45], ["Elevación de gemelos unilateral", 4, 45, 35, 45], ["Elevaciones de piernas colgado", 4, 40, 40, 45], ["Hollow hold", 3, 40, 40, 0], ["Finisher del día · máxima calidad", 1, 435, 0, 0]], "strength_total": 2700}, "Jueves": {"title": "Pecho · Hombros · Bíceps", "cardio": true, "exercises": [["Fondos en paralelas con pausa abajo", 4, 45, 50, 45], ["Flexiones declinadas", 4, 45, 45, 45], ["Pike push-ups con pausa", 4, 40, 50, 45], ["Flexiones explosivas", 4, 35, 50, 45], ["Dominadas supinas tempo lento", 4, 45, 50, 45], ["Negativas de dominada supina", 3, 40, 50, 45], ["Flexiones pseudo-planche", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 425, 0, 0]], "strength_total": 2700}, "Viernes": {"title": "Espalda · Trapecio · Tríceps", "cardio": true, "exercises": [["Dominadas pronas con pausa arriba", 4, 45, 50, 45], ["Dominadas neutras / agarre disponible", 4, 45, 50, 45], ["Dominadas escapulares lentas", 4, 40, 45, 45], ["Negativas de dominada prona", 3, 40, 50, 45], ["Fondos en paralelas cerrados", 4, 45, 45, 45], ["Flexiones diamante lentas", 4, 40, 45, 45], ["Extensión de tríceps en paralelas", 3, 40, 45, 0], ["Finisher del día · máxima calidad", 1, 435, 0, 0]], "strength_total": 2700}, "Sábado": {"title": "Piernas · Abdomen", "cardio": false, "exercises": [["Sentadilla búlgara con pausa", 4, 50, 40, 45], ["Zancada atrás + rodilla arriba", 4, 45, 40, 45], ["Sentadilla con salto explosiva", 4, 35, 45, 45], ["Pistol squat asistida", 4, 40, 45, 45], ["Elevación de gemelos con pausa", 4, 45, 35, 45], ["Elevaciones de rodillas colgado", 4, 45, 40, 45], ["Plancha RKC", 3, 40, 40, 0], ["Finisher del día · máxima calidad", 1, 455, 0, 0]], "strength_total": 2700}}, CARDIO={"rounds": 15, "work": 45, "rest": 15}, DAYS=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+let idx=Math.min(((new Date().getDay()+6)%7),5), sequence=[], seqIndex=0, remaining=0, timerId=null, running=false, audioCtx=null;
+
 function k(){return "cal6-"+DAYS[idx]}
 function load(){try{return JSON.parse(localStorage.getItem(k())||"{}")}catch(e){return{}}}
 function save(x){localStorage.setItem(k(),JSON.stringify(x))}
 function fmt(s){let m=Math.floor(s/60),x=s%60;return String(m).padStart(2,"0")+":"+String(x).padStart(2,"0")}
 function block(ex){return ex[1]*ex[2]+(ex[1]-1)*ex[3]+ex[4]}
-function renderDays(){days.innerHTML="";DAYS.forEach((d,i)=>{let b=document.createElement("button");b.className="day"+(i===idx?" active":"");b.textContent=d;b.onclick=()=>{idx=i;render()};days.appendChild(b)})}
+
+function initAudio(){
+  if(!audioCtx){const Ctx=window.AudioContext||window.webkitAudioContext;if(Ctx)audioCtx=new Ctx()}
+  if(audioCtx&&audioCtx.state==="suspended")audioCtx.resume();
+}
+function beep(kind="change"){
+  if(!audioCtx)return;
+  const o=audioCtx.createOscillator(),g=audioCtx.createGain(),now=audioCtx.currentTime;
+  o.connect(g);g.connect(audioCtx.destination);o.type="sine";
+  o.frequency.value=kind==="start"?900:kind==="finish"?1200:720;
+  g.gain.setValueAtTime(0.0001,now);g.gain.exponentialRampToValueAtTime(0.24,now+0.01);g.gain.exponentialRampToValueAtTime(0.0001,now+0.22);
+  o.start(now);o.stop(now+0.24);
+  if(navigator.vibrate)navigator.vibrate(kind==="finish"?[160,80,160]:100);
+}
+function buildSequence(){
+  const p=PLANS[DAYS[idx]],a=[];
+  p.exercises.forEach((e,ei)=>{
+    const [name,sets,work,rest,transition]=e;
+    for(let s=1;s<=sets;s++){
+      a.push({label:"TRABAJO",exercise:name,set:`Tanda ${s} de ${sets}`,seconds:work});
+      if(s<sets&&rest>0)a.push({label:"DESCANSO",exercise:name,set:`Después de tanda ${s}`,seconds:rest});
+    }
+    if(transition>0)a.push({label:"CAMBIO DE EJERCICIO",exercise:p.exercises[ei+1]?.[0]||"Siguiente",set:"Prepárate",seconds:transition});
+  });
+  if(p.cardio){
+    for(let r=1;r<=CARDIO.rounds;r++){
+      a.push({label:"CUERDA",exercise:"🪢 Saltar cuerda",set:`Tanda ${r} de ${CARDIO.rounds}`,seconds:CARDIO.work});
+      a.push({label:r===CARDIO.rounds?"DESCANSO FINAL":"DESCANSO CUERDA",exercise:"🪢 Recuperación",set:`Después de tanda ${r}`,seconds:CARDIO.rest});
+    }
+  }
+  return a;
+}
+function showStep(){
+  if(seqIndex>=sequence.length){finishSession();return}
+  const s=sequence[seqIndex];remaining=s.seconds;
+  document.getElementById("sessionPhase").textContent=s.label;
+  document.getElementById("sessionExercise").textContent=s.exercise;
+  document.getElementById("sessionSet").textContent=s.set;
+  document.getElementById("clock").textContent=fmt(remaining);
+  beep(seqIndex===0?"start":"change");
+}
+function tick(){
+  if(!running)return;
+  remaining--;
+  document.getElementById("clock").textContent=fmt(Math.max(remaining,0));
+  if(remaining<=0){seqIndex++;showStep()}
+}
+function startRoutine(){
+  initAudio();sequence=buildSequence();seqIndex=0;running=true;
+  if(timerId)clearInterval(timerId);showStep();timerId=setInterval(tick,1000);
+}
+function pauseRoutine(){running=false;document.getElementById("sessionPhase").textContent="PAUSA"}
+function resumeRoutine(){
+  initAudio();if(!sequence.length){startRoutine();return}
+  running=true;document.getElementById("sessionPhase").textContent=sequence[seqIndex]?.label||"TRABAJO";beep("change");
+}
+function stopRoutine(){
+  running=false;if(timerId)clearInterval(timerId);timerId=null;sequence=[];seqIndex=0;remaining=0;
+  document.getElementById("sessionPhase").textContent="Listo para comenzar";
+  document.getElementById("sessionExercise").textContent="Pulsa INICIAR RUTINA";
+  document.getElementById("sessionSet").textContent="—";document.getElementById("clock").textContent="00:00";
+}
+function finishSession(){
+  running=false;if(timerId)clearInterval(timerId);timerId=null;
+  document.getElementById("sessionPhase").textContent="RUTINA TERMINADA ✓";
+  document.getElementById("sessionExercise").textContent=DAYS[idx]+" completado";
+  document.getElementById("sessionSet").textContent="Buen trabajo";document.getElementById("clock").textContent="00:00";
+  beep("finish");setTimeout(()=>beep("finish"),300);
+}
+function renderDays(){
+  const box=document.getElementById("days");box.innerHTML="";
+  DAYS.forEach((d,i)=>{const b=document.createElement("button");b.className="day"+(i===idx?" active":"");b.textContent=d;
+    b.addEventListener("click",()=>{idx=i;stopRoutine();render()});box.appendChild(b)})
+}
 function state(i,v){let d=load();d[i]=d[i]===v?"":v;save(d);renderList()}
-function setTimer(s,label){sec=s;running=false;if(tid)clearInterval(tid);clock.textContent=fmt(sec);timerLabel.textContent=label}
-function renderList(){let p=PLANS[DAYS[idx]],d=load();title.textContent=DAYS[idx]+" · "+p.title;list.innerHTML="";
-p.exercises.forEach((e,i)=>{let row=document.createElement("div");row.className="ex";let st=d[i]||"";row.innerHTML=`<div class="exTop"><div class="name">${e[0]}</div><div class="num">${i+1}</div></div><div class="meta">${e[1]} tanda${e[1]>1?"s":""} · ${e[2]} s trabajo · ${e[3]} s descanso · bloque ${fmt(block(e))}</div><div class="bar"><button class="yes ${st==="y"?"on":""}">✅ Hecho</button><button class="no ${st==="n"?"on":""}">❌ No hecho</button></div>`;row.querySelector(".yes").onclick=()=>state(i,"y");row.querySelector(".no").onclick=()=>state(i,"n");row.querySelector(".name").onclick=()=>setTimer(e[2],e[0]+" · trabajo");list.appendChild(row)});
-if(p.cardio){rope.innerHTML=`<div class="rope"><h3>🪢 Cuerda · 15 min</h3><div class="ropeStats"><div class="rstat"><b>${CARDIO.rounds}</b><small>tandas</small></div><div class="rstat"><b>${CARDIO.work}s</b><small>salto</small></div><div class="rstat"><b>${CARDIO.rest}s</b><small>descanso</small></div></div><div class="hint" style="margin-top:8px">15 tandas × (45 s saltando + 15 s descanso) = 15:00 exactos.</div></div>`;cardioHero.textContent="15 min"}else{rope.innerHTML=`<div class="rope"><h3>🦵 Sin cuerda</h3><div class="hint">Día de piernas: termina después de los 45 minutos de fuerza.</div></div>`;cardioHero.textContent="Sin cuerda"}
-let vals=Object.values(d),y=vals.filter(x=>x==="y").length,n=vals.filter(x=>x==="n").length,total=p.exercises.length;yes.textContent=y;no.textContent=n;pct.textContent=Math.round(y/total*100)+"%"}
+function renderList(){
+  const p=PLANS[DAYS[idx]],d=load();document.getElementById("title").textContent=DAYS[idx]+" · "+p.title;
+  const list=document.getElementById("list");list.innerHTML="";
+  p.exercises.forEach((e,i)=>{
+    const row=document.createElement("div"),st=d[i]||"";row.className="ex";
+    row.innerHTML=`<div class="exTop"><div class="name">${e[0]}</div><div class="num">${i+1}</div></div>
+    <div class="meta">${e[1]} tanda${e[1]>1?"s":""} · ${e[2]} s trabajo · ${e[3]} s descanso · bloque ${fmt(block(e))}</div>
+    <div class="bar"><button class="yes ${st==="y"?"on":""}">✅ Hecho</button><button class="no ${st==="n"?"on":""}">❌ No hecho</button></div>`;
+    row.querySelector(".yes").addEventListener("click",()=>state(i,"y"));row.querySelector(".no").addEventListener("click",()=>state(i,"n"));list.appendChild(row)
+  });
+  if(p.cardio){
+    document.getElementById("rope").innerHTML=`<div class="rope"><h3>🪢 Cuerda · 15 min</h3><div class="ropeStats">
+    <div class="rstat"><b>${CARDIO.rounds}</b><small>tandas</small></div><div class="rstat"><b>${CARDIO.work}s</b><small>salto</small></div><div class="rstat"><b>${CARDIO.rest}s</b><small>descanso</small></div></div>
+    <div class="hint" style="margin-top:8px">El cronómetro automático empieza la cuerda al terminar la fuerza y pita en cada cambio.</div></div>`;
+    document.getElementById("cardioHero").textContent="15 min";
+  } else {
+    document.getElementById("rope").innerHTML=`<div class="rope"><h3>🦵 Sin cuerda</h3><div class="hint">Día de piernas: termina al completar los 45 minutos de fuerza.</div></div>`;
+    document.getElementById("cardioHero").textContent="Sin cuerda";
+  }
+  const vals=Object.values(d),y=vals.filter(x=>x==="y").length,n=vals.filter(x=>x==="n").length,total=p.exercises.length;
+  document.getElementById("yes").textContent=y;document.getElementById("no").textContent=n;document.getElementById("pct").textContent=Math.round(y/total*100)+"%";
+}
 function render(){renderDays();renderList()}
-start.onclick=()=>{if(running)return;running=true;tid=setInterval(()=>{if(sec>0){sec--;clock.textContent=fmt(sec)}else{clearInterval(tid);running=false;timerLabel.textContent="TERMINADO ✓";if(navigator.vibrate)navigator.vibrate([150,100,150])}},1000)}
-pause.onclick=()=>{if(tid)clearInterval(tid);running=false};reset.onclick=()=>{if(tid)clearInterval(tid);running=false;sec=0;clock.textContent="00:00";timerLabel.textContent="CRONÓMETRO"};render();
+document.getElementById("startRoutine").addEventListener("click",startRoutine);
+document.getElementById("pauseRoutine").addEventListener("click",pauseRoutine);
+document.getElementById("resumeRoutine").addEventListener("click",resumeRoutine);
+document.getElementById("stopRoutine").addEventListener("click",stopRoutine);
+render();
 </script></body></html>
